@@ -1,4 +1,4 @@
-package controllers;
+package controllers.jsp;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Handler
  */
 @Controller
-public class demoHtmlController {
+public class demoJspController {
 
 	//@ResponseBody
-	@RequestMapping("/demo2")
-	public String demoHtmlEndpoint() {
-		System.out.println("This is Demo Html Endpoint");
-		return "Demo2";
-//		return "/vi/ew/Demo1.jsp";
+	@RequestMapping("/demo1")
+	public String demoJspEndpoint() {
+		System.out.println("This is Demo Jsp Endpoint");
+		return "Demo1";
+//		return "/view/Demo1.jsp";
 //		return "/view/Demo2.html";
 	}
 }

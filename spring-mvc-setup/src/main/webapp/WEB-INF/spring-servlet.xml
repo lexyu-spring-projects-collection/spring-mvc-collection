@@ -12,19 +12,22 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <context:component-scan base-package="controllers"/>
+    <context:component-scan base-package="controllers,my.controllers"/>
+
 
     <!-- Configure the view resolver -->
-<!--    <bean id="htmlViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-<!--        <property name="prefix" value="/html/"/>-->
-<!--        <property name="suffix" value=".html"/>-->
-<!--        <property name="order" value="1"/>-->
-<!--    </bean>-->
-
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
-        <property name="order" value="2"/>
+        <property name="order" value="0"/>
     </bean>
+
+    <bean id="htmlViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/html/"/>
+        <property name="suffix" value=".html"/>
+        <property name="order" value="1"/>
+    </bean>
+
+
 
 </beans>
