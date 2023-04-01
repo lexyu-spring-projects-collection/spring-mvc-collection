@@ -15,6 +15,7 @@ public class testController {
 	@ResponseBody
 	@RequestMapping("/test")
 	public String testEndpoint(){
+		System.out.println("This is Test Endpoint");
 		return "This is Test Endpoint";
 	}
 }

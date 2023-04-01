@@ -15,6 +15,7 @@ public class fakeController {
 	@ResponseBody
 	@RequestMapping("/fake")
 	public String fakeEndpoint() {
+		System.out.println("This is fake Endpoint");
 		return "This is fake Endpoint";
 	}
 

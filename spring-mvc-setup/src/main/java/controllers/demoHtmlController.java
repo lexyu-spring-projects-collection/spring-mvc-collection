@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Handler
  */
 @Controller
-public class demoController {
+public class demoHtmlController {
 
 	//@ResponseBody
-	@RequestMapping("/demo")
-	public String demoEndpoint() {
-		System.out.println("This is Demo Endpoint");
-		return "Demo";
-//		return "/vi/ew/Demo.jsp";
-//		return "/view/Demo.html";
+	@RequestMapping("/demo2")
+	public String demoHtmlEndpoint() {
+		System.out.println("This is Demo Html Endpoint");
+		return "Demo2";
+//		return "/vi/ew/Demo1.jsp";
+//		return "/view/Demo2.html";
 	}
 }
