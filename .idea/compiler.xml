@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="mvc-demo-no-xml" />
         <module name="spring-mvc-setup" />
+        <module name="spring-bean-scope" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
