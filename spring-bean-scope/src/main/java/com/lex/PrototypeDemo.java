@@ -6,11 +6,10 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author : Lex Yu
- * @date : 2023/6/6
+ * @date : 2023/6/8
  */
-@Component(value = "singletonDemo")
-//@Scope("singleton") // default
-@Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON) // default
-public class SingletonDemo {
-
+@Component("prototypeDemo")
+//@Scope("prototype")
+@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+public class PrototypeDemo {
 }
