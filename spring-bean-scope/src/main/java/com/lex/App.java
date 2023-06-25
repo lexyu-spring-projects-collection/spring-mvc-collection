@@ -8,8 +8,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @date : 2023/6/8
  */
 public class App {
-	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+    public static void main(String[] args) {
+        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
 		/*
 		SingletonDemo sgt1 = context.getBean("singletonDemo",SingletonDemo.class);
@@ -40,5 +40,15 @@ public class App {
 		System.out.println("---------------------------------------------------------------------------------------\n");
 		 */
 
-	}
+        School schoolObj1 = context.getBean("school", School.class);
+        School schoolObj2 = context.getBean("school", School.class);
+        System.out.printf("""
+                schoolObj1={%s}, schoolObj1.getStudent()={%s}
+                """, schoolObj1, schoolObj1.getStudent());
+        System.out.printf("""
+                schoolObj2={%s}, schoolObj2.getStudent()={%s}
+                """, schoolObj2, schoolObj2.getStudent());
+
+
+    }
 }

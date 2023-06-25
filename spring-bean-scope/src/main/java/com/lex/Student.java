@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,12 +13,11 @@ import org.springframework.stereotype.Component;
  */
 @Getter
 @Setter
-@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE, proxyMode = ScopedProxyMode.TARGET_CLASS)
 @Component("student")
 public class Student {
 	private String name;
 	private static int count;
-
 
 	public Student() {
 		System.out.println("Student default constructor, object " + incr() + " created");
