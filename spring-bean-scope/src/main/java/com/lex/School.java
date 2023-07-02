@@ -1,6 +1,7 @@
 package com.lex;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -11,26 +12,43 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope("singleton")
 public class School {
-	private static int count;
+    private static int count;
 
-	@Autowired
-	private Student student;
+    @Autowired
+    private Student student; // prototype
 
-	public School() {
-		System.out.println("School default constructor, object " + incr() + " created");
-	}
+    public School() {
+        System.out.println("School default constructor, object " + incr() + " created");
+    }
 
-	private static int incr() {
-		return ++count;
-	}
+//    /*
+    @Lookup
+    Student createStudentObject() {
+        return null;
+        // behind scene, student is defined as prototype scoped
+        // with each getBean() call a new object will be returned.
+        // return context.getBean("student", Student.class)
+    }
+//     */
 
-	// Student is prototype,
-	// return a new object each time it gets called
-	public Student getStudent() {
-		return student;
-	}
+    /*
+    @Lookup
+    abstract Student createStudentObject();
+	*/
 
-	public void setStudent(Student student) {
-		this.student = student;
-	}
+    private static int incr() {
+        return ++count;
+    }
+
+    // Student is prototype,
+    // return a new object each time it gets called
+    public Student getStudent() {
+        Student student = createStudentObject();
+        return student;
+//		return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
 }

@@ -13,7 +13,11 @@ import org.springframework.stereotype.Component;
  */
 @Getter
 @Setter
-@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE, proxyMode = ScopedProxyMode.TARGET_CLASS)
+// Spring CG(Code Generated) Library
+@Scope(
+		value = ConfigurableBeanFactory.SCOPE_PROTOTYPE
+		,proxyMode = ScopedProxyMode.TARGET_CLASS
+)
 @Component("student")
 public class Student {
 	private String name;
@@ -24,6 +28,6 @@ public class Student {
 	}
 
 	private static int incr() {
-		return ++count;
+		return count++;
 	}
 }

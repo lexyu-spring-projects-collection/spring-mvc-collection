@@ -40,15 +40,38 @@ public class App {
 		System.out.println("---------------------------------------------------------------------------------------\n");
 		 */
 
+        /* Prototype, cglib
         School schoolObj1 = context.getBean("school", School.class);
         School schoolObj2 = context.getBean("school", School.class);
         System.out.printf("""
-                schoolObj1={%s}, schoolObj1.getStudent()={%s}
+                schoolObj1 = { %s }, schoolObj1.getStudent() = { %s }
                 """, schoolObj1, schoolObj1.getStudent());
         System.out.printf("""
-                schoolObj2={%s}, schoolObj2.getStudent()={%s}
+                schoolObj2 = { %s }, schoolObj2.getStudent() = { %s }
                 """, schoolObj2, schoolObj2.getStudent());
+         */
 
+        ScopeTest scopeTest1 = context.getBean("scopeTest", ScopeTest.class);
+        ScopeTest scopeTest2 = context.getBean("scopeTest", ScopeTest.class);
+        System.out.printf("""
+                scopeTest1 = { %s }
+                """, scopeTest1);
+        System.out.printf("""
+                scopeTest2 = { %s }
+                """, scopeTest2);
+
+        ApplicationContext context2 = new ClassPathXmlApplicationContext("beans2.xml");
+        ScopeTest scopeTest3 = context2.getBean("scopeTest", ScopeTest.class);
+        ScopeTest scopeTest4 = context2.getBean("scopeTest", ScopeTest.class);
+        System.out.println("scopeTest3 = { " + scopeTest3 + "  }");
+        System.out.println("scopeTest4 = { " + scopeTest4 + "  }");
+
+        // err: No Scope registered for scope name 'request'
+        ApplicationContext context3 = new ClassPathXmlApplicationContext("beans.xml");
+        ScopeTestReq scopeTest5 = context3.getBean("scopeTestReq", ScopeTestReq.class);
+        ScopeTestReq scopeTest6 = context3.getBean("scopeTestReq", ScopeTestReq.class);
+        System.out.println("scopeTest5 = { " + scopeTest5 + "  }");
+        System.out.println("scopeTest6 = { " + scopeTest6 + "  }");
 
     }
 }

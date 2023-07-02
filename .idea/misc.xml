@@ -14,6 +14,7 @@
         <option value="$PROJECT_DIR$/mvc-demo/pom.xml" />
         <option value="$PROJECT_DIR$/mvc-demo-no-xml/pom.xml" />
         <option value="$PROJECT_DIR$/spring-bean-scope/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-bean-scope-web/pom.xml" />
       </list>
     </option>
   </component>
