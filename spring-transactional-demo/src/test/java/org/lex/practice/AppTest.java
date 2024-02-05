@@ -1,4 +1,4 @@
-package org.lex;
+package org.lex.practice;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
